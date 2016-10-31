@@ -20,22 +20,26 @@ $(document).ready(function() {
 
     var newItem = new Item(name, hours);
 
-    $("ul#list").append("<li>" + "<h3>" + newItem.name + "</h3>");
-
-    $("ul#list").append("Hours needed: " + newItem.hours + "<br>" + "<h4>" + "Finished:" + "</h4>" + "<input type='radio' name='finished' value='yes' class='yes'> Yes" + "<br>" + "<input type='radio' name='finished' value='no' class='no'> No" + "</li>");
+    $("ul#list").append("<li>" + "<div class='form-group'>" + "<h3>" + newItem.name + "</h3>" + "<br>" + "Hours needed: " + newItem.hours + "<br>" + "<br>" + "<label for='sel1'>Finished</label><select class='form-control'><option value='yes'>Yes</option><option value='no'>No</option></select>" + "</div>" +"</li>");
 
     $("#show-list").show();
 
 
-  })
+  });
+
   $("form#finished-form").submit(function(event) {
     event.preventDefault();
 
-    $("ul#list li").forEach(function() {
-      if ($("input:radio[value='yes']").is(":checked")) {
-        this.remove();
+    $("ul#list li").each(function() {
+      if ($("option[value='yes']").is(":selected") === true) {
+        $(this).remove();
       }
+      // else if ($("option[value='no']").is(":selected") == true) {
+      //   alert("no");
+      // }
 
-    })
-  })
-})
+
+
+    });
+  });
+});
