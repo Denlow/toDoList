@@ -1,0 +1,12 @@
+.jumbotron {
+  text-align: center;
+  font-family: cursive;
+
+}
+form {
+  text-align: left;
+}
+
+#show-list {
+  display: none;
+}
